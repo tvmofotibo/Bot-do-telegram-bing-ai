@@ -21,14 +21,7 @@ import os
 time.sleep(5)
 outputai=""
 inputuser=""
-def enviarmen(men):
-    url = "https://api.callmebot.com/whatsapp.php"
-    params = {
-        "phone": os.getenv('NUM_KEY'),
-        "text": men,
-        "apikey": os.getenv('API_KEY_MEN')
-    }
-    response = requests.get(url, params=params)
+
 #chave da api do telegram
 api_chave_bot=os.getenv('API_KEY_BOT')
 api_chave_bing=os.getenv('API_KEY_BING')
@@ -62,9 +55,7 @@ def funveri(mensagem):
 	global outputai
 	global inputuser
 	inputuser=mensagem.text
-	inputterminal=" "*5+"Input user: "+str(mensagem.from_user.first_name)+" id: "+mensagem.from_user.id+": "+inputuser
-	print(inputterminal)
-	enviarmen(inputterminal)
+	print(" "*5+"Input user: "+inputuser)
 	print("\n")
 	if(inputuser!="start"):
 		outputai=aigetapi()
@@ -102,8 +93,8 @@ def start(mensagem):
 @bot.message_handler(func=funveri)
 def respon(mensagem):
    
-    bot.send_message(mensagem.chat.id, outputai)
-    
+    #bot.send_message(mensagem.chat.id, outputai)
+    bot.reply_to(mensagem,outputai)
 
     
 bot.polling()
