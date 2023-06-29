@@ -93,8 +93,8 @@ def start(mensagem):
 @bot.message_handler(func=funveri)
 def respon(mensagem):
    
-    #bot.send_message(mensagem.chat.id, outputai)
-    bot.reply_to(mensagem,outputai)
+    bot.send_message(mensagem.chat.id, outputai)
+    
 
     
 bot.polling()
