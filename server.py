@@ -84,17 +84,17 @@ def start(mensagem):
     if (str(mensagem.from_user.first_name)=="None"):
     	nome1=""
     else:
-    	
-    	
+
+
     	nome1="Olá "+str(mensagem.from_user.first_name)+" "
     bot.send_message(mensagem.chat.id, "%s%sEu sou sr bunda cagada, o Rick colocou em min a Bing AI para eu ficar mais inteligente."%(nome1,nome2))
     bot.send_message(mensagem.chat.id,"faça-me qual quer pergunta")
     bot.send_message(mensagem.chat.id,"INSTAGRAM DO MEU CRIADOR: \n https://instagram.com/alvino_gabriel_santana?igshid=ZDc4ODBmNjlmNQ==")
 @bot.message_handler(func=funveri)
 def respon(mensagem):
-   
-    bot.send_message(mensagem.chat.id, outputai)
-    
 
-    
+    bot.send_message(mensagem.chat.id, outputai)
+
+
+
 bot.polling()
